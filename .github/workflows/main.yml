@@ -1,0 +1,35 @@
+name: simple application
+on:
+  push:
+    branches:
+      - dev
+      - test
+      - pre-prod
+      - main
+
+jobs:
+  dev:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo DEV
+        run: echo "deploying to dev"
+  test:
+    if: github.ref == 'refs/heads/test'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo test
+        run: echo "deploying to test"
+  pre-prod:
+    if: github.ref == 'refs/heads/pre-prod'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo pre-prod
+        run: echo "deploying to preprod"
+  main:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Prod
+        run: echo "deploying to Prod"
+        
